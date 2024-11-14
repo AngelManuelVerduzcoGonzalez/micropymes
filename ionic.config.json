@@ -1,0 +1,7 @@
+{
+  "name": "mycropimes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
