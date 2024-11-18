@@ -68,3 +68,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#Env
+/servidor/.env
+
+#Database
+/servidor/database.sqlite
+
+#Tests
+/servidor/tests.rest
