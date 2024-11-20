@@ -1,0 +1,30 @@
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <h1 class="ion-text-center">ABARROTES</h1>
+    
+    <form (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="stacked">Nombre de usuario</ion-label>
+        <ion-input type="text" (ngModel)="username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" (ngModel)="password"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-checkbox (ngModel)="rememberMe"></ion-checkbox>
+        <ion-label class="ion-padding-start">¿Recordar contraseña?</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="ion-margin-top">
+        Iniciar Sesión
+      </ion-button>
+
+      <ion-button expand="block" fill="clear" (click)="register()">
+        Registrarse
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
