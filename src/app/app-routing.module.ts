@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,27 +18,33 @@ const routes: Routes = [
   },
   {
     path: 'ventas',
-    loadChildren: () => import('./ventas/ventas.module').then( m => m.VentasPageModule)
+    loadChildren: () => import('./ventas/ventas.module').then(m => m.VentasPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'clientes',
-    loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
+    loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'productos',
-    loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+    loadChildren: () => import('./productos/productos.module').then(m => m.ProductosPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'proveedores',
-    loadChildren: () => import('./proveedores/proveedores.module').then( m => m.ProveedoresPageModule)
+    loadChildren: () => import('./proveedores/proveedores.module').then(m => m.ProveedoresPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'reportes',
-    loadChildren: () => import('./reportes/reportes.module').then( m => m.ReportesPageModule)
+    loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'compras',
-    loadChildren: () => import('./compras/compras.module').then( m => m.ComprasPageModule)
+    loadChildren: () => import('./compras/compras.module').then(m => m.ComprasPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 
