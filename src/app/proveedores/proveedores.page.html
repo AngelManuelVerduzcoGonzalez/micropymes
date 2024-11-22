@@ -1,13 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>proveedores</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" id="header">
+  <ion-title>
+    Proveedores
+  </ion-title>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">proveedores</ion-title>
+      <ion-title size="large">Proveedores</ion-title>
     </ion-toolbar>
   </ion-header>
+
+   <ion-list id="list-proveedores">
+    <!-- Lista de proveedores existentes -->
+    <ion-item *ngFor="let proveedor of proveedores" class="proveedor-card">
+      <ion-label>
+        <h2>{{ proveedor.nombre }}</h2>
+        <p>Teléfono: {{ proveedor.telefono }}</p>
+        <p>Domicilio: {{ proveedor.domicilio }}</p>
+      </ion-label>
+
+      <!-- Botón para editar un proveedor -->
+      <ion-button fill="clear" color="medium" slot="end" (click)="abrirModalProveedores(proveedor)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+
+       <ion-button fill="clear" color="danger" slot="end" (click)="eliminarProveedor(proveedor.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <div id="div-buttons">
+    <ion-button (click)="abrirModalProveedores()">Registrar proveedores</ion-button>
+  </div>
 </ion-content>

@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegistroModalComponent } from './register-modal/register-modal.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProveedoresModalComponent } from './proveedores-modal/proveedores-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, RegistroModalComponent],
+  declarations: [AppComponent, RegistroModalComponent, ProveedoresModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
