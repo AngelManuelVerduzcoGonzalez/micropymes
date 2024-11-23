@@ -14,10 +14,18 @@ module.exports = {
     // Agregar un nuevo cliente
     addCliente: async (req, res) => {
         try {
-            const nuevoCliente = await Cliente.create(req.body);
-            res.status(201).json(nuevoCliente);
+            const { nombre, telefono, domicilio, puntos, correo } = req.body;
+
+            // Validaciones adicionales (opcional)
+            if (!nombre || !telefono || !domicilio || !correo) {
+                return res.status(400).json({ error: 'Faltan campos obligatorios' });
+            }
+
+            const cliente = await Cliente.create({ nombre, telefono, domicilio, puntos, correo });
+            res.status(201).json(cliente);
         } catch (error) {
-            res.status(500).json({ error: 'Error al agregar el cliente: ' + error.message });
+            console.error('Error al agregar el cliente:', error);
+            res.status(500).json({ error: 'Error al agregar el cliente', details: error.message });
         }
     },
 

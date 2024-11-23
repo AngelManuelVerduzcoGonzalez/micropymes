@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Guardar cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre del cliente</ion-label>
+    <ion-input [(ngModel)]="nombre" placeholder="Ingresa el nombre del cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Correo</ion-label>
+    <ion-input [(ngModel)]="correo" type="email" placeholder="Ingresa el correo del cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Teléfono</ion-label>
+    <ion-input [(ngModel)]="telefono" type="tel" placeholder="Ingresa el teléfono del cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Domicilio</ion-label>
+    <ion-input [(ngModel)]="domicilio" placeholder="Ingresa el domicilio del cliente"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="guardarCliente()">Guardar cliente</ion-button>
+</ion-content>

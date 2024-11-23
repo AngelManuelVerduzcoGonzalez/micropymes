@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>clientes</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" id="header">
+  <ion-title>
+    Clientes
+  </ion-title>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">clientes</ion-title>
+      <ion-title size="large">Clientes</ion-title>
     </ion-toolbar>
   </ion-header>
+
+   <ion-list id="list-clientes">
+    <!-- Lista de proveedores existentes -->
+    <ion-item *ngFor="let cliente of clientes" class="cliente-card">
+      <ion-label>
+        <h2>{{ cliente.nombre }}</h2>
+        <p>Teléfono: {{ cliente.telefono }}</p>
+        <p>Domicilio: {{ cliente.domicilio }}</p>
+        <p>Puntos: {{ cliente.puntos }}</p>
+      </ion-label>
+
+      <!-- Botón para editar un proveedor -->
+      <ion-button fill="clear" color="medium" slot="end" (click)="abrirModalClientes(cliente)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+
+       <ion-button fill="clear" color="danger" slot="end" (click)="eliminarCliente(cliente.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <div id="div-buttons">
+    <ion-button (click)="abrirModalClientes()">Registrar cliente</ion-button>
+  </div>
 </ion-content>

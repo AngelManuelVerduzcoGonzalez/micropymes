@@ -1,0 +1,42 @@
+#header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #444444;
+}
+
+#list-clientes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#div-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ion-button {
+    --background: #afaea7;
+}
+
+.cliente-card {
+    padding: 5px;
+    width: 90%;
+}
+
+.card-name {
+    font-weight: bold;
+}
+

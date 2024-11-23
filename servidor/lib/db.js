@@ -61,6 +61,10 @@ const Producto = sequelize.define('Producto', {
     idProveedor: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    codigo: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     tableName: 'productos'
@@ -81,7 +85,7 @@ const Cliente = sequelize.define('Cliente', {
         allowNull: false,
     },
     telefono: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     domicilio: {
@@ -167,7 +171,7 @@ const Proveedor = sequelize.define('Proveedor', {
         allowNull: false
     },
     telefono: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.STRING,
         allowNull: false
     },
     domicilio: {

@@ -29,36 +29,36 @@ export class ProveedoresPage implements OnInit {
   }
 
   async abrirModalProveedores(proveedor?: any) {
-  const modal = await this.modalCtrl.create({
-    component: ProveedoresModalComponent,
-    componentProps: { proveedor }, // Pasar los datos aquí
-  });
+    const modal = await this.modalCtrl.create({
+      component: ProveedoresModalComponent,
+      componentProps: { proveedor }, // Pasar los datos aquí
+    });
 
-  await modal.present();
+    await modal.present();
 
-  modal.onDidDismiss().then((data) => {
-    if (data.data) {
-      if (data.data.isEditing) {
-        // Lógica para actualizar
-        this.proveedoresService.updateProveedores(proveedor.id, data.data).subscribe({
-          next: () => {
-            this.alert('Éxito', 'Proveedor actualizado correctamente')
-            this.cargarProveedores();
-          },
-          error: (err) => this.alert('Error', 'No se pudo actualizar el proveedor'),
-        });
-      } else {
-        // Lógica para crear nuevo proveedor
-        this.proveedoresService.addProveedores(data.data).subscribe({
-          next: () => {
-            this.alert('Éxito', 'Proveedor registrado correctamente');
-            this.cargarProveedores();
-          },
-          error: (err) => this.alert('Error', 'No se pudo registrar el proveedor'),
-        });
+    modal.onDidDismiss().then((data) => {
+      if (data.data) {
+        if (data.data.isEditing) {
+          // Lógica para actualizar
+          this.proveedoresService.updateProveedores(proveedor.id, data.data).subscribe({
+            next: () => {
+              this.alert('Éxito', 'Proveedor actualizado correctamente')
+              this.cargarProveedores();
+            },
+            error: (err) => this.alert('Error', 'No se pudo actualizar el proveedor'),
+          });
+        } else {
+          // Lógica para crear nuevo proveedor
+          this.proveedoresService.addProveedores(data.data).subscribe({
+            next: () => {
+              this.alert('Éxito', 'Proveedor registrado correctamente');
+              this.cargarProveedores();
+            },
+            error: (err) => this.alert('Error', 'No se pudo registrar el proveedor'),
+          });
+        }
       }
-    }
-  });
+    });
   }
   
   eliminarProveedor(id: number) {
