@@ -14,9 +14,10 @@ import { ProductosModalComponent } from './productos-modal/productos-modal.compo
 import { ClientesModalComponent } from './clientes-modal/clientes-modal.component';
 import { VentaModalComponent } from './ventas-modal/ventas-modal.component';
 import { CompraModalComponent } from './compras-modal/compras-modal.component';
+import { TicketModalComponent } from './ticket-modal/ticket-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, RegistroModalComponent, ProveedoresModalComponent, ProductosModalComponent, ClientesModalComponent, VentaModalComponent, CompraModalComponent],
+  declarations: [AppComponent, RegistroModalComponent, ProveedoresModalComponent, ProductosModalComponent, ClientesModalComponent, VentaModalComponent, CompraModalComponent, TicketModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

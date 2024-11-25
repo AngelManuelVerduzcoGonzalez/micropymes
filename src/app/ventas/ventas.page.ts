@@ -4,6 +4,7 @@ import { VentaModalComponent } from '../ventas-modal/ventas-modal.component';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ClienteService } from 'src/services/cliente/cliente.service';
 import { ProductoService } from 'src/services/producto/producto.service';
+import { TicketModalComponent } from '../ticket-modal/ticket-modal.component';
 
 @Component({
   selector: 'app-ventas',
@@ -98,6 +99,15 @@ export class VentasPage implements OnInit {
       console.error(error);
     }
   }
+
+  async abrirTicket(venta: any) {
+  const modal = await this.modalCtrl.create({
+    component: TicketModalComponent,
+    componentProps: { venta }, // Pasa la información de la venta al modal
+  });
+
+  await modal.present();
+}
 
   async alert(header: string, message: string) {
     const alert = await this.alertController.create({

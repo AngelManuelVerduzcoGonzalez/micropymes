@@ -27,8 +27,16 @@ export class ProductosPage implements OnInit {
     this.productos.getProductos().subscribe((prods: any) => {
       this.prods = prods;
       this.filteredProds = prods; // Inicialmente, muestra todos los productos
+
+      // Verificar el stock bajo después de que los productos se carguen
+      for (let prod of this.prods) {
+        if (prod.cantidad <= 10) {
+          this.alert("STOCK BAJO", `Hay 10 o menos ${prod.nombre}, es momento de reabastecer`);
+        }
+      }
     });
   }
+
 
   onSearchChange(event: any) {
     const query = event.target.value.toLowerCase();
