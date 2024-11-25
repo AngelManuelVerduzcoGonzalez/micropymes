@@ -1,13 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" id="header">
   <ion-toolbar>
-    <ion-title>productos</ion-title>
+    <ion-title id="title">Productos</ion-title>
+    <ion-searchbar 
+      placeholder="Buscar productos"
+      (ionInput)="onSearchChange($event)">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">productos</ion-title>
+      <ion-title size="large">Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list id="list-proveedores">
+    <!-- Lista de productos filtrados -->
+    <ion-item *ngFor="let prod of filteredProds" class="proveedor-card">
+      <ion-label>
+        <h2>{{ prod.nombre }}</h2>
+        <h3>{{ prod.descripcion }}</h3>
+        <p>Cantidad: {{ prod.cantidad }}</p>
+        <p>Precio de compra: ${{ prod.precio_costo }}</p>
+        <p>Precio de venta: ${{ prod.precio_venta }}</p>
+        <p>Proveedor: {{ prod.Proveedor?.nombre }}</p>
+        <img class="card-img" [src]="prod.url" />
+      </ion-label>
+
+      <ion-button fill="clear" color="medium" slot="end" (click)="abrirModal(prod)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" color="danger" slot="end" (click)="eliminar(prod.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div id="div-buttons">
+    <ion-button (click)="abrirModal()">Registrar productos</ion-button>
+  </div>
 </ion-content>

@@ -16,6 +16,19 @@ module.exports = {
         }
     },
 
+    getProductoId: async (req, res) => {
+        const { id } = req.params;
+        try {
+            const producto = await Producto.findByPk(id);
+            if (!producto) {
+                return res.status(404).json({ message: 'Producto no encontrado' });
+            }
+            res.status(200).json(producto);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener el producto: ' + error.message });
+        }
+    },
+
     // Obtener productos por proveedor
     getProductosByProveedor: async (req, res) => {
         const { idProveedor } = req.params;

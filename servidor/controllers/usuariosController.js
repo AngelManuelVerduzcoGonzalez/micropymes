@@ -1,6 +1,14 @@
 const { Usuario, sequelize } = require('../lib/db.js');
 
 module.exports = {
+    getUsuarios: async (req, res) => {
+        try {
+            const usuario = await Usuario.findAll();
+            res.json(usuario);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener el usuario' });
+        }
+    },
     getUsuario: async (req, res) => {
         try {
             const usuario = await Usuario.findAll({

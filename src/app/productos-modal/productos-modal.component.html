@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Guardar producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Producto</ion-label>
+    <ion-input [(ngModel)]="nombre" placeholder="Ingresa el nombre del producto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-input [(ngModel)]="desc" placeholder="Añade una descripción"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Cantidad</ion-label>
+    <ion-input [(ngModel)]="cant" type="number" placeholder="Ingresa la cantidad del producto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Precio de compra</ion-label>
+    <ion-input [(ngModel)]="costo" type="number" placeholder="Ingresa el precio de compra producto"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Precio de venta</ion-label>
+    <ion-input [(ngModel)]="venta" type="number" placeholder="Ingresa el precio de venta del producto"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Imagen del producto</ion-label>
+    <ion-input [(ngModel)]="img" placeholder="Agrega una imagen del producto"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Proveedor</ion-label>
+    <ion-select [(ngModel)]="proveedor" name="pene2" label-placement="floating">
+      <ion-select-option *ngFor="let proveedor of provs" [value]="proveedor.id">
+        {{ proveedor.nombre }}
+      </ion-select-option>
+  </ion-select>
+    <!-- <ion-input [(ngModel)]="proveedor" placeholder="Selecciona el proveedor del producto"></ion-input> -->
+  </ion-item>
+
+  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
+</ion-content>

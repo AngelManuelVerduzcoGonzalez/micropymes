@@ -13,6 +13,9 @@ export class ClienteService {
   getClientes(): Observable <any> {
     return this.http.get(this.apiUrl);
   }
+  getClienteId(id: any): Observable <any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
 
   addCliente(cliente: any): Observable<any> {
     return this.http.post(this.apiUrl, cliente);

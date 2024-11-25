@@ -1,9 +1,12 @@
 const router = require('express').Router()
 const clientesController = require('../controllers/clientesController');
-const { route } = require('./clientes');
 
 router.get('/', (req, res) => {
     clientesController.getClientes(req, res);
+});
+
+router.get('/:id', (req, res) => {
+    clientesController.getClienteId(req, res);
 });
 
 router.post('/', (req, res) => {

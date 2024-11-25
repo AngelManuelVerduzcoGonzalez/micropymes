@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditing ? 'Editar Compra' : 'Nueva Compra' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Producto</ion-label>
+    <ion-select [(ngModel)]="producto" (ionChange)="actualizarPrecioYCosto()">
+      <ion-select-option *ngFor="let prod of prods" [value]="prod.id">
+        {{ prod.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Proveedor</ion-label>
+    <ion-select [(ngModel)]="proveedor">
+      <ion-select-option *ngFor="let prov of provs" [value]="prov.id">
+        {{ prov.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cantidad</ion-label>
+    <ion-input
+      [(ngModel)]="cantidad"
+      type="number"
+      (ionChange)="actualizarPrecioYCosto()"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio (Unidad)</ion-label>
+    <ion-input [value]="precio_costo" readonly></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Costo Total</ion-label>
+    <ion-input [value]="costo_total" readonly></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
+</ion-content>

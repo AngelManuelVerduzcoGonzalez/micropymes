@@ -11,6 +11,19 @@ module.exports = {
         }
     },
 
+    getClienteId: async (req, res) => {
+        const { id } = req.params;
+        try {
+            const cliente = await Cliente.findByPk(id);
+            if (!cliente) {
+                return res.status(404).json({ message: 'Cliente no encontrado' });
+            }
+            res.status(200).json(cliente);
+        } catch (error) {
+            res.status(500).json({ error: 'Error al obtener el cliente: ' + error.message });
+        }
+    },
+
     // Agregar un nuevo cliente
     addCliente: async (req, res) => {
         try {

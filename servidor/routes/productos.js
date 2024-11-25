@@ -5,6 +5,10 @@ router.get('/', (req, res) => {
     productosController.getProductos(req, res);
 });
 
+router.get('/:id', (req, res) => {
+    productosController.getProductoId(req, res);
+});
+
 router.get('/proveedor/:idProveedor', (req, res) => {
     productosController.getProductosByProveedor(req, res);
 })

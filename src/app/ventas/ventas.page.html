@@ -1,13 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ventas</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" id="header">
+    <ion-title>Ventas</ion-title>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">ventas</ion-title>
+      <ion-title size="large">Ventas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list id="list-proveedores">
+    <ion-item *ngFor="let x of sales" class="proveedor-card">
+      <ion-label>
+        <h3>Cliente: {{ x.Cliente.nombre }}</h3>
+        <h3>Producto: {{ x.Producto.nombre }}</h3>
+        <p>Cantidad: {{ x.cantidad }}</p>
+        <p>Precio: ${{ x.precio_venta }}</p>
+        <p>Costo total: ${{ x.costo_total }}</p>
+        <img class="card-img" [src]="x.Producto.url"/>
+      </ion-label>
+
+      <ion-button fill="clear" color="medium" slot="end" (click)="abrirModal(x)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+
+       <ion-button fill="clear" color="danger" slot="end" (click)="eliminar(x.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <div id="div-buttons">
+    <ion-button (click)="abrirModal()">Registrar ventas</ion-button>
+  </div>
 </ion-content>
